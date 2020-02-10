@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import com.myTube.Repositories.ChannelRepo;
 import com.myTube.Repositories.UserRepo;
-import com.myTube.Repositories.VideoRepo;
 
 
 @Controller
@@ -19,12 +18,10 @@ public class MainController {
 	public UserRepo userRepo;
 	@Autowired
 	public ChannelRepo channelRepo;
-	@Autowired
-	public VideoRepo videoRepo;
 	
 	   @GetMapping("/")
 	    public String root() {
-	        return "Index";
+	        return "redirect:Login";
 	    }
 	   
 	   @GetMapping("/MainPage")
@@ -35,11 +32,6 @@ public class MainController {
 	       return "MainPage";
 	    }
 	   
-
-	    @GetMapping("/login")
-	    public String login() {
-	        return "login";
-	    }
 	
 	
 }

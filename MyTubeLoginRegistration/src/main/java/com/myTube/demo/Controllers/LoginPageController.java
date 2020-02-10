@@ -16,7 +16,6 @@ import com.myTube.Entities.Channel;
 import com.myTube.Entities.User;
 import com.myTube.Repositories.ChannelRepo;
 import com.myTube.Repositories.UserRepo;
-import com.myTube.Repositories.VideoRepo;
 import com.myTube.Services.UserServiceImplimentation;
 import com.myTube.web.dto.UserLogInDTO;
 
@@ -29,9 +28,6 @@ public class LoginPageController {
 	
 	@Autowired
 	public ChannelRepo channelRepo;
-	
-	@Autowired
-	public VideoRepo videoRepo;
 	
 	@ModelAttribute("User")
 	public UserLogInDTO userLoginDTO()

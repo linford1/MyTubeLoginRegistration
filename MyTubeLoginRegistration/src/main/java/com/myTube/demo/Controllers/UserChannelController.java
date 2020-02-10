@@ -13,11 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.myTube.Entities.Channel;
 import com.myTube.Entities.User;
-import com.myTube.Entities.Video;
 import com.myTube.Repositories.ChannelRepo;
 import com.myTube.Repositories.UserRepo;
-import com.myTube.Repositories.VideoRepo;
-
 @Controller
 @RequestMapping(value="/MyChannel")
 public class UserChannelController 
@@ -29,8 +26,6 @@ public class UserChannelController
 		@Autowired
 		public ChannelRepo channelRepo;
 		
-		@Autowired
-		public VideoRepo videoRepo;
 		
 		@GetMapping
 		public String MyChannelPage(Model model,HttpSession session)
@@ -40,12 +35,6 @@ public class UserChannelController
 			model.addAttribute("userChannel", userChannel.getChannelname());
 			
 			model.addAttribute("user",(User)session.getAttribute("user"));
-
-			List<Video> allChannelVideos = videoRepo.findBychannel((Channel)session.getAttribute("userChannel"));
-			
-			//session.setAttribute("allChannelVideos",allChannelVideos);
-			
-			model.addAttribute("allChannelVideos",allChannelVideos);
 			
 			return "UserChannelPage";
 		}
