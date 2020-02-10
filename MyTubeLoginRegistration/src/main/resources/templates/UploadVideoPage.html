@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+<form  th:action="@{/UploadVideo}" th:object="${video}" th:method="POST" enctype="multipart/form-data">
+Name: <input type="text" name="VideoName" placeholder="{Video Name}"  th:field="*{videoname}"><br>
+Description: <input type="text" name="Description" placeholder="{Description}"  th:field="*{videodescription}"><br>
+Video File: <input id="myVideo" type="file" accept="video/*"  th:field="*{videofile}"><br>
+Video Length: <input type="text" name="Video Length" placeholder="0:00"  th:field="*{videolength}"><br>
+<button type="submit">Upload</button>
+</form>
+
+</body>
+</html>

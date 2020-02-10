@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Your Channel</title>
+</head>
+<body>
+<p>Channel Name: <span th:text="${userChannel}"></span> <p>
+<a th:href="@{UploadVideo}">Upload Video</a>
+
+    <p th:each="Video: ${allChannelVideos}"
+    	th:text="${Video.getVideoname()}"> </p>
+		
+
+<video width="320" height="240"  th:each="Video: ${allChannelVideos}" th:src="${Video.getVideoURL()}" preload="auto" controls></video>
+
+</body>
+</html>
